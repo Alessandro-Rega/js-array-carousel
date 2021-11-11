@@ -94,5 +94,5 @@
 
 .selezionata{
     border: 2px solid white;
-    filter: none;
+    filter: brightness(1.3);
 }
