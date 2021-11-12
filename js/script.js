@@ -26,10 +26,18 @@ const text = [
 const immagini_piccole = document.getElementById('immagini-piccole');
 
 for(let i=0; i < items.length; i++){
-    immagini_piccole.innerHTML += `
-    <div class="immagine-piccola">
-        <img src=${items[i]} alt="..">
-    </div>`
+    if(i==0){
+        immagini_piccole.innerHTML += `
+        <div class="immagine-piccola selezionata">
+            <img src=${items[i]} alt="..">
+        </div>`;
+    }
+    else{
+        immagini_piccole.innerHTML += `
+        <div class="immagine-piccola">
+            <img src=${items[i]} alt="..">
+        </div>`;
+    }
 }
 
 const immagine_principale = document.getElementById('immagine');
@@ -42,20 +50,31 @@ const desc = document.getElementById('desc');
 
 scritta.innerHTML += `
 <span id="luogo">${title[0]}</span>
-<span id="desc">${text[0]}</span>`
+<span id="desc">${text[0]}</span>`;
 
 const freccia_su = document.getElementById('freccia-su');
 const freccia_giu = document.getElementById('freccia-giu');
+const immagine_piccola = document.getElementsByClassName('immagine-piccola');
 let immagine_corrente = 0;
 
 freccia_su.addEventListener('click', function(){
+    immagine_piccola[immagine_corrente].classList.remove('selezionata');
     if(immagine_corrente != 0)immagine_corrente --;
     else immagine_corrente = 4;
     immagine_principale.innerHTML = `<img src=${items[immagine_corrente]} alt="..">`
+    scritta.innerHTML = `
+    <span id="luogo">${title[immagine_corrente]}</span>
+    <span id="desc">${text[immagine_corrente]}</span>`
+    immagine_piccola[immagine_corrente].classList.add('selezionata');
 });
 
 freccia_giu.addEventListener('click', function(){
+    immagine_piccola[immagine_corrente].classList.remove('selezionata');
     if(immagine_corrente != 4)immagine_corrente ++;
     else immagine_corrente = 0;
     immagine_principale.innerHTML = `<img src=${items[immagine_corrente]} alt="..">`
+    scritta.innerHTML = `
+    <span id="luogo">${title[immagine_corrente]}</span>
+    <span id="desc">${text[immagine_corrente]}</span>`
+    immagine_piccola[immagine_corrente].classList.add('selezionata');
 });
