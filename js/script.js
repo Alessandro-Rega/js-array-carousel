@@ -28,13 +28,13 @@ const immagini_piccole = document.getElementById('immagini-piccole');
 for(let i=0; i < items.length; i++){
     immagini_piccole.innerHTML += `
     <div class="immagine-piccola">
-        <img src="img/0${i+1}.jpg" alt="..">
+        <img src=${items[i]} alt="..">
     </div>`
 }
 
-const immagine_principale = document.getElementById('immagine-principale');
+const immagine_principale = document.getElementById('immagine');
 
-immagine_principale.innerHTML += `<img src="img/01.jpg" alt="..">`  
+immagine_principale.innerHTML += `<img src=${items[0]} alt="..">`  
 
 const scritta = document.getElementById('scritta');
 const luogo = document.getElementById('luogo');
@@ -43,3 +43,19 @@ const desc = document.getElementById('desc');
 scritta.innerHTML += `
 <span id="luogo">${title[0]}</span>
 <span id="desc">${text[0]}</span>`
+
+const freccia_su = document.getElementById('freccia-su');
+const freccia_giu = document.getElementById('freccia-giu');
+let immagine_corrente = 0;
+
+freccia_su.addEventListener('click', function(){
+    if(immagine_corrente != 0)immagine_corrente --;
+    else immagine_corrente = 4;
+    immagine_principale.innerHTML = `<img src=${items[immagine_corrente]} alt="..">`
+});
+
+freccia_giu.addEventListener('click', function(){
+    if(immagine_corrente != 4)immagine_corrente ++;
+    else immagine_corrente = 0;
+    immagine_principale.innerHTML = `<img src=${items[immagine_corrente]} alt="..">`
+});

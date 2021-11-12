@@ -17,13 +17,17 @@
     display: flex;
 }
 
-#immagine-principale{
+.immagine-principale{
     width: 80%;
     height: 500px;
     position: relative;
 }
 
-#immagine-principale img{
+#immagine{
+    height: 500px;
+}
+
+#immagine img{
     width: 100%;
     height: 100%;
 }
