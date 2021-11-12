@@ -28,7 +28,7 @@
     height: 100%;
 }
 
-.scritta{
+#scritta{
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -56,7 +56,6 @@
 
 .immagine-piccola{
     height: 100px;
-    filter: brightness(0.5);
 }
 
 .immagine-piccola img{
@@ -68,7 +67,6 @@
     width: 25px;
     height: 25px;
     position: absolute;
-    transform: translateX(+50%);
     text-align: center;
     line-height: 25px;
     border-radius: 20px;
@@ -79,10 +77,10 @@
 #freccia-su{
     top: 10px;
     right: 50%;
+    transform: translateX(+50%);
 }
 
 #freccia-giu{
-    position: absolute;
     bottom: 10px;
     right: 50%;
     padding-top: 1.2px;
@@ -94,5 +92,4 @@
 
 .selezionata{
     border: 2px solid white;
-    filter: brightness(1.3);
 }
